@@ -18,17 +18,26 @@
                 @csrf
                 <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
-                  <input type="title" class="form-control" name="title" required>
+                  <input type="text" class="form-control" name="title" class="@error('title') is-invalid @enderror">
+                  
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="author" class="form-label">Author</label>
-                    <input type="author" class="form-control" name="author" required>
+                    <input type="text" class="form-control" name="author" class="@error('author') is-invalid @enderror">
                 </div>
+                    @error('author')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 <div class="mb-3">
                     <label for="ISBN" class="form-label">ISBN</label>
-                    <input type="ISBN" class="form-control" name="ISBN" required>
+                    <input type="number" class="form-control" name="ISBN" class="@error('ISBN') is-invalid @enderror">
                 </div>
-               
+                        @error('ISBN')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
         </div>
